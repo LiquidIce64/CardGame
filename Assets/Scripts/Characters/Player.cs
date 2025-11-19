@@ -7,9 +7,10 @@ namespace Characters
     {
         private static Player instance;
 
-        private InputSystem_Actions inputActions;
+        private static InputSystem_Actions inputActions;
 
         public static Player Instance => instance;
+        public static InputSystem_Actions InputActions => inputActions;
 
         new protected void Awake()
         {
