@@ -12,20 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: TestCard
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 0}
+  sprite: {fileID: -1220123941, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
   effects:
   - effectType: 1
     modifierType: 0
     modifierScaling: 0
     modifierValue: 0
-    weapon: {fileID: 0}
-  - effectType: 0
-    modifierType: 0
-    modifierScaling: 0
-    modifierValue: 0
-    weapon: {fileID: 0}
-  - effectType: 2
-    modifierType: 0
-    modifierScaling: 0
-    modifierValue: 0
-    weapon: {fileID: 0}
+    weapon: {fileID: 2991562776769094783, guid: 0f07753d0743d444bacf03b9aa9de5e0, type: 3}

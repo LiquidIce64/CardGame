@@ -1,15 +1,26 @@
+using Characters;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(RectTransform))]
+[RequireComponent(typeof(RectTransform), typeof(Image))]
 public class Card : MonoBehaviour
 {
     private const float speed = 15f;
     private RectTransform rect;
     private Vector3 targetPos;
     private Vector3 rotationCenter;
+    private CardObject cardObject;
 
     public RectTransform Rect => rect;
+
+    public CardObject CardObject
+    {
+        get { return cardObject; }
+        set {
+            cardObject = value;
+            GetComponent<Image>().sprite = cardObject.Sprite;
+        }
+    }
 
     private void Awake()
     {
@@ -18,20 +29,26 @@ public class Card : MonoBehaviour
         rotationCenter = rect.position;
         rotationCenter.y -= 1f;
         CardHand hand = GetComponentInParent<CardHand>();
-        hand.AddCard(this);
-        GetComponent<Image>().color = Random.ColorHSV(0, 1);
+        hand.cards.Add(this);
     }
 
     private void OnDestroy()
     {
         CardHand hand = GetComponentInParent<CardHand>();
-        if (hand != null) hand.RemoveCard(this);
+        if (hand != null) hand.cards.Remove(this);
     }
 
     public void SetTarget(Vector3 pos, Vector3 center)
     {
         targetPos = pos;
         rotationCenter = center;
+    }
+
+    [ContextMenu("Use Card")]
+    public void Use()
+    {
+        cardObject.ApplyEffects(Player.Instance);
+        Destroy(gameObject);
     }
 
     private void Update()

@@ -7,10 +7,19 @@ public class CardObject : ScriptableObject
     [SerializeField] private Sprite sprite;
     [SerializeField] private CardEffect[] effects;
 
-    public void ApplyEffects(Player player)
+    public Sprite Sprite => sprite;
+    public CardEffect[] Effects => effects;
+    
+    public void ApplyEffects(BaseCharacter character)
     {
         foreach (var effect in effects)
-            effect.Apply(player);
+            effect.Apply(character);
+    }
+
+    private void OnValidate()
+    {
+        foreach (var effect in effects)
+            effect.OnValidate();
     }
 }
 

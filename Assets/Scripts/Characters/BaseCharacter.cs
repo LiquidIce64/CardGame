@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
@@ -5,25 +6,34 @@ namespace Characters
 {
     abstract public class BaseCharacter : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed = 500f;
+        [SerializeField] protected float moveSpeed = 500f;
         [SerializeField] protected float maxHealth = 100f;
+        [SerializeField] protected CardEffect[] startingEffects;
         protected float health;
+        protected readonly List<GameObject> weaponHistory = new();
         protected BaseWeapon equippedWeapon;
         protected Rigidbody2D rb;
 
         public float Health => health;
         public float MaxHealth => maxHealth;
+        public BaseWeapon EquippedWeapon => equippedWeapon;
 
-        public BaseWeapon EquippedWeapon
+        protected void OnValidate()
         {
-            get { return equippedWeapon; }
-            set { equippedWeapon = value; }
+            foreach (var effect in startingEffects)
+                effect.OnValidate();
         }
 
         protected void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             health = maxHealth;
+        }
+
+        protected void Start()
+        {
+            foreach (var effect in startingEffects)
+                effect.Apply(this);
         }
 
         public void ApplyKnockback(Vector3 knockback)
@@ -41,6 +51,33 @@ namespace Characters
                 OnDeath();
                 return;
             }
+        }
+
+        protected bool SetWeapon(GameObject weaponPrefab)
+        {
+            var weaponObj = Instantiate(weaponPrefab, transform);
+            if (!weaponObj.TryGetComponent<BaseWeapon>(out var weapon))
+            {
+                Debug.LogError("Could not get weapon component");
+                Destroy(weaponObj);
+                return false;
+            }
+            if (equippedWeapon != null) Destroy(equippedWeapon.gameObject);
+            equippedWeapon = weapon;
+            return true;
+        }
+
+        public void EquipWeapon(GameObject weaponPrefab)
+        {
+            SetWeapon(weaponPrefab);
+            weaponHistory.Add(weaponPrefab);
+        }
+
+        public void RevertWeapon()
+        {
+            weaponHistory.RemoveAt(weaponHistory.Count - 1);
+            var weaponPrefab = weaponHistory[^1];
+            SetWeapon(weaponPrefab);
         }
 
         abstract protected void OnDeath();

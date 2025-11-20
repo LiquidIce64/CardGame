@@ -8,26 +8,38 @@ public class CardHand : MonoBehaviour
     [SerializeField] private float selectedCardOffset = 75f;
     [SerializeField] private int startingCardCount = 6;
     [SerializeField] private float cardSpacingMultiplier = 1f;
+    [SerializeField] private CardObject cardObject;
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private RectTransform hudRect;
     private RectTransform rectTransform;
-    private readonly List<Card> cards = new();
     private int selectedCard = -1;
+    public readonly List<Card> cards = new();
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         for (int i = 0; i < startingCardCount; i++)
-        {
-            Instantiate(cardPrefab, rectTransform);
-        }
+            AddCard();
+    }
+
+    private void Start()
+    {
+        Player.InputActions.Player.UseCard.performed += _ => UseCard();
     }
 
     [ContextMenu("Add Card")]
-    private void NewCard() => Instantiate(cardPrefab, rectTransform);
+    private void AddCard()
+    {
+        var card = Instantiate(cardPrefab, rectTransform).GetComponent<Card>();
+        card.CardObject = cardObject;
+    }
 
-    public void AddCard(Card card) => cards.Add(card);
-    public void RemoveCard(Card card) => cards.Remove(card);
+    private void UseCard()
+    {
+        if (selectedCard == -1) return;
+        cards[selectedCard].Use();
+        selectedCard = -1;
+    }
 
     private float GetRadius()
     {

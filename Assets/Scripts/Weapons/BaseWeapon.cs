@@ -44,7 +44,6 @@ namespace Weapons
         protected void Awake()
         {
             owner = GetComponentInParent<BaseCharacter>();
-            owner.EquippedWeapon = this;
         }
 
         protected void FixedUpdate()
