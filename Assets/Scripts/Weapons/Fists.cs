@@ -14,7 +14,7 @@ namespace Weapons
 
             List<Collider2D> results = new();
             Physics2D.OverlapCircle(
-                owner.transform.position, range,
+                owner.transform.position, Range,
                 ContactFilter2D.noFilter, results
             );
 
@@ -26,8 +26,8 @@ namespace Weapons
                 Vector3 characterDir = GetDirectionToPos(character.transform.position);
                 if (Vector3.Angle(targetDirection, characterDir) > sweepAngle) continue;
 
-                character.ApplyDamage(damage);
-                character.ApplyKnockback(characterDir * knockback);
+                character.ApplyDamage(Damage);
+                character.ApplyKnockback(characterDir * Knockback);
             }
         }
     }

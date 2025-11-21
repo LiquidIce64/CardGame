@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b7867ed386f8a4bb498766f89ffe3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fists
-  damage: 5
-  knockback: 7.5
-  range: 1.75
-  cooldown: 1
+  baseDamage: 5
+  baseKnockback: 10
+  baseRange: 1.5
+  baseFireRate: 1
   sweepAngle: 30

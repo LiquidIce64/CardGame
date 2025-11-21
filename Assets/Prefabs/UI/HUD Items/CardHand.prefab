@@ -52,7 +52,7 @@ MonoBehaviour:
   selectedCardOffset: 75
   startingCardCount: 6
   cardSpacingMultiplier: 1
-  cardObject: {fileID: 11400000, guid: 411cddbcaaa7e794189ad7165f199235, type: 2}
+  cardObject: {fileID: 11400000, guid: 41e7eb4468760ec48b9a721781ab8aab, type: 2}
   cardPrefab: {fileID: 1012755086982760942, guid: 7f6dac22313247f48b6ff6f4aafbd802, type: 3}
   hudRect: {fileID: 0}
 --- !u!222 &3280323815129785800

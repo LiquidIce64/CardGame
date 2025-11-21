@@ -15,27 +15,15 @@ public struct CardEffect
         Custom
     }
 
-    public enum ModifierType
-    {
-        Damage,
-        Knockback,
-        Resistance,
-        Speed,
-        ReloadSpeed,
-        FiringRate,
-    }
-
-    public enum ModifierScaling
-    {
-        Linear,
-        LinearPercent,
-        Exponential
-    }
-
     public EffectType effectType;
 
     // Modifier
     public ModifierType modifierType;
+    [Tooltip(
+        "Constant - increase base value\n" +
+        "Linear - increase the linear multiplier\n" +
+        "Exponential - multiply the exponential multiplier"
+    )]
     public ModifierScaling modifierScaling;
     public float modifierValue;
 
@@ -52,7 +40,7 @@ public struct CardEffect
         switch (effectType)
         {
             case EffectType.Modifier:
-
+                character.ApplyModifierScaling(modifierType, modifierScaling, modifierValue);
                 break;
 
             case EffectType.Weapon:
@@ -60,11 +48,11 @@ public struct CardEffect
                 break;
 
             case EffectType.Ability:
-
+                Debug.LogException(new NotImplementedException());
                 break;
 
             case EffectType.Custom:
-
+                Debug.LogException(new NotImplementedException());
                 break;
         }
     }

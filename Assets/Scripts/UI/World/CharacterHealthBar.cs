@@ -17,7 +17,7 @@ namespace UI
             bar.GetComponent<Image>().color = barColor;
         }
 
-        protected void Awake()
+        protected void Start()
         {
             rectTransform = GetComponent<RectTransform>();
             character = GetComponentInParent<BaseCharacter>();
