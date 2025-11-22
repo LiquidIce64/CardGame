@@ -8,18 +8,18 @@ public class CardHand : MonoBehaviour
     [SerializeField] private float selectedCardOffset = 75f;
     [SerializeField] private int startingCardCount = 6;
     [SerializeField] private float cardSpacingMultiplier = 1f;
-    [SerializeField] private CardObject cardObject;
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private RectTransform hudRect;
     private RectTransform rectTransform;
     private int selectedCard = -1;
     public readonly List<Card> cards = new();
+    private CardObject[] cardObjectPool;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        for (int i = 0; i < startingCardCount; i++)
-            AddCard();
+        cardObjectPool = Resources.LoadAll<CardObject>("CardObjects");
+        AddCards(startingCardCount);
     }
 
     private void Start()
@@ -30,8 +30,20 @@ public class CardHand : MonoBehaviour
     [ContextMenu("Add Card")]
     private void AddCard()
     {
+        CardObject cardObject = cardObjectPool[Random.Range(0, cardObjectPool.Length)];
+        AddCard(cardObject);
+    }
+
+    private void AddCard(CardObject cardObject)
+    {
         var card = Instantiate(cardPrefab, rectTransform).GetComponent<Card>();
         card.CardObject = cardObject;
+    }
+
+    private void AddCards(int count)
+    {
+        foreach (int idx in HelperFuncs.GetRandomIndices(cardObjectPool.Length, count))
+            AddCard(cardObjectPool[idx]);
     }
 
     private void UseCard()
@@ -50,7 +62,11 @@ public class CardHand : MonoBehaviour
 
     private void UpdateCardPositions()
     {
-        if (cards.Count == 0) return;
+        if (cards.Count == 0)
+        {
+            selectedCard = -1;
+            return;
+        }
 
         float radius = GetRadius();
         Vector3 center = new(0f, rectTransform.rect.height / 2 - radius, 0f);
