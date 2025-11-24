@@ -2,7 +2,7 @@ using Characters;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(RectTransform), typeof(Image))]
+[RequireComponent(typeof(RectTransform))]
 public class Card : MonoBehaviour
 {
     private const float speed = 15f;
@@ -10,6 +10,10 @@ public class Card : MonoBehaviour
     private Vector3 targetPos;
     private Vector3 rotationCenter;
     private CardObject cardObject;
+    private ICardDeck cardDeck;
+    [SerializeField] private Image image;
+    [SerializeField] private GameObject outline;
+    public bool updateRotation = false;
 
     public RectTransform Rect => rect;
 
@@ -18,7 +22,28 @@ public class Card : MonoBehaviour
         get { return cardObject; }
         set {
             cardObject = value;
-            GetComponent<Image>().sprite = cardObject.Sprite;
+            image.sprite = cardObject.Sprite;
+        }
+    }
+
+    public bool Selected
+    {
+        get => outline.activeSelf;
+        set => outline.SetActive(value);
+    }
+
+    public ICardDeck CardDeck
+    {
+        get => cardDeck;
+        set
+        {
+            cardDeck?.UnregisterCard(this);
+            cardDeck = value;
+            if (cardDeck != null)
+            {
+                transform.SetParent(cardDeck.transform, true);
+                cardDeck.RegisterCard(this);
+            }
         }
     }
 
@@ -28,20 +53,24 @@ public class Card : MonoBehaviour
         targetPos = rect.position;
         rotationCenter = rect.position;
         rotationCenter.y -= 1f;
-        CardHand hand = GetComponentInParent<CardHand>();
-        hand.cards.Add(this);
     }
 
     private void OnDestroy()
     {
-        CardHand hand = GetComponentInParent<CardHand>();
-        if (hand != null) hand.cards.Remove(this);
+        CardDeck = null;
+    }
+
+    public void SetTarget(Vector3 pos)
+    {
+        targetPos = pos;
+        updateRotation = false;
     }
 
     public void SetTarget(Vector3 pos, Vector3 center)
     {
         targetPos = pos;
         rotationCenter = center;
+        updateRotation = true;
     }
 
     [ContextMenu("Use Card")]
@@ -54,11 +83,15 @@ public class Card : MonoBehaviour
     private void Update()
     {
         Vector3 newPos = rect.localPosition;
-        newPos += Mathf.Min(1f, speed * Time.deltaTime) * (targetPos - newPos);
+        newPos += Mathf.Min(1f, speed * Time.unscaledDeltaTime) * (targetPos - newPos);
         rect.localPosition = newPos;
-        Vector3 normal = newPos - rotationCenter;
-        normal.z = 0f;
-        normal.Normalize();
-        rect.rotation = Quaternion.LookRotation(Vector3.forward, normal);
+        if (updateRotation)
+        {
+            Vector3 normal = newPos - rotationCenter;
+            normal.z = 0f;
+            normal.Normalize();
+            rect.rotation = Quaternion.LookRotation(Vector3.forward, normal);
+        }
+        else rect.rotation = Quaternion.identity;
     }
 }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Armor
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
   sprite: {fileID: -672156107, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  cardName: Armor
+  cardDescription: More protection from attacks
   effects:
   - effectType: 0
     modifierType: 3

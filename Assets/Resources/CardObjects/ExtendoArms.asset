@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ExtendoArms
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
   sprite: {fileID: -401033576, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  cardName: ExtendoArms
+  cardDescription: More melee attack range
   effects:
   - effectType: 0
     modifierType: 8

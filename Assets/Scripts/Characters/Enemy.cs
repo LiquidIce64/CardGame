@@ -17,6 +17,12 @@ namespace Characters
             agent.updateUpAxis = false;
         }
 
+        new protected void Start()
+        {
+            base.Start();
+            WaveController.Instance.RegisterEnemy(this);
+        }
+
         protected void FollowPlayer()
         {
             agent.SetDestination(Player.Instance.transform.position);
@@ -49,6 +55,11 @@ namespace Characters
             }
 
             Move(agent.desiredVelocity.normalized);
+        }
+
+        protected void OnDestroy()
+        {
+            WaveController.Instance.UnregisterEnemy(this);
         }
     }
 }

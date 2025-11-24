@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: FasterShooting
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
   sprite: {fileID: 1910851681, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  cardName: Firearm Expert
+  cardDescription: Shoot faster
   effects:
   - effectType: 0
     modifierType: 7

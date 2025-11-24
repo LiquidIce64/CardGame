@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
-public class CardHand : MonoBehaviour
+public class CardHand : MonoBehaviour, ICardDeck
 {
+    private static CardHand instance;
+
     [SerializeField] private float selectedCardOffset = 75f;
     [SerializeField] private int startingCardCount = 6;
     [SerializeField] private float cardSpacingMultiplier = 1f;
@@ -13,12 +15,14 @@ public class CardHand : MonoBehaviour
     private RectTransform rectTransform;
     private int selectedCard = -1;
     public readonly List<Card> cards = new();
-    private CardObject[] cardObjectPool;
+
+    public static CardHand Instance => instance;
 
     private void Awake()
     {
+        instance = this;
         rectTransform = GetComponent<RectTransform>();
-        cardObjectPool = Resources.LoadAll<CardObject>("CardObjects");
+        cards.Capacity = startingCardCount;
         AddCards(startingCardCount);
     }
 
@@ -27,23 +31,26 @@ public class CardHand : MonoBehaviour
         Player.InputActions.Player.UseCard.performed += _ => UseCard();
     }
 
+    public void RegisterCard(Card card) => cards.Add(card);
+    public void UnregisterCard(Card card) => cards.Remove(card);
+
     [ContextMenu("Add Card")]
     private void AddCard()
     {
-        CardObject cardObject = cardObjectPool[Random.Range(0, cardObjectPool.Length)];
-        AddCard(cardObject);
+        AddCard(CardObject.GetRandomCard());
     }
 
     private void AddCard(CardObject cardObject)
     {
         var card = Instantiate(cardPrefab, rectTransform).GetComponent<Card>();
         card.CardObject = cardObject;
+        card.CardDeck = this;
     }
 
     private void AddCards(int count)
     {
-        foreach (int idx in HelperFuncs.GetRandomIndices(cardObjectPool.Length, count))
-            AddCard(cardObjectPool[idx]);
+        foreach (CardObject cardObj in CardObject.GetRandomCards(count))
+            AddCard(cardObj);
     }
 
     private void UseCard()
@@ -75,7 +82,9 @@ public class CardHand : MonoBehaviour
         {
             selectedCard = 0;
             Vector3 pos = new(0f, rectTransform.rect.height / 2 + selectedCardOffset, 0f);
-            cards[0].SetTarget(pos, center);
+            var card = cards[0];
+            card.SetTarget(pos, center);
+            card.Selected = true;
             return;
         }
 
@@ -99,7 +108,8 @@ public class CardHand : MonoBehaviour
             Vector3 pos = center;
             pos.x += radius * Mathf.Sin(angle);
             pos.y += radius * Mathf.Cos(angle);
-            if (i == selectedCard)
+            bool selected = i == selectedCard;
+            if (selected)
             {
                 Vector3 normal = pos - center;
                 normal.z = 0f;
@@ -111,6 +121,7 @@ public class CardHand : MonoBehaviour
             else
                 card.transform.SetAsFirstSibling();
             card.SetTarget(pos, center);
+            card.Selected = selected;
             angle += angleDelta;
             i++;
         }

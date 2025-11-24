@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ExtraHealth
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
   sprite: {fileID: -1974795825, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  cardName: Extra Health
+  cardDescription: More maximum health
   effects:
   - effectType: 0
     modifierType: 0
