@@ -1,4 +1,5 @@
 using Characters;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class CardObject : ScriptableObject
     [SerializeField] private Sprite sprite;
     [SerializeField] private string cardName;
     [SerializeField] private string cardDescription;
+    [SerializeField] private float effectDuration = 0f;
     [SerializeField] private CardEffect[] effects;
     
     private static CardObject[] cardObjectPool;
@@ -30,10 +32,19 @@ public class CardObject : ScriptableObject
             yield return cardObjectPool[idx];
     }
 
+    private IEnumerator RevertEffects(BaseCharacter character)
+    {
+        yield return new WaitForSeconds(effectDuration);
+        foreach (var effect in effects)
+            effect.Revert(character);
+    }
+
     public void ApplyEffects(BaseCharacter character)
     {
         foreach (var effect in effects)
             effect.Apply(character);
+        if (effectDuration > 0f)
+            character.StartCoroutine(RevertEffects(character));
     }
 
     private void OnValidate()

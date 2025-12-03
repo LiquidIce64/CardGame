@@ -8,7 +8,7 @@ namespace Weapons
     {
         [SerializeField] protected float sweepAngle = 45f;
 
-        override protected void OnUse(Vector3 targetPos)
+        override protected void OnUse()
         {
             Vector3 targetDirection = GetDirectionToPos(targetPos);
 

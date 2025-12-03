@@ -23,7 +23,8 @@ public class WaveController : MonoBehaviour
     
     public void OnWaveEnd()
     {
-        CardPicker.Instance.Show();
+        var cardPicker = CardPicker.Instance;
+        if (cardPicker != null) cardPicker.Show();
         StartNextWave();
     }
 

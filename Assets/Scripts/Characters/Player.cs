@@ -31,13 +31,14 @@ namespace Characters
             // Movement
             Move(inputActions.Player.Move.ReadValue<Vector2>());
 
+            // Aim
+            Vector2 mousePos = inputActions.Player.MousePosition.ReadValue<Vector2>();
+            Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePos);
+            equippedWeapon.TargetPos = targetPos;
+
             // Attack
             if (inputActions.Player.Attack.IsPressed())
-            {
-                Vector2 pressPos = inputActions.Player.Attack.ReadValue<Vector2>();
-                Vector3 targetPos = Camera.main.ScreenToWorldPoint(pressPos);
-                equippedWeapon.Use(targetPos);
-            }
+                equippedWeapon.Use();
         }
     }
 }

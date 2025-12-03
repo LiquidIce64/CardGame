@@ -8,7 +8,8 @@ public enum ModifierType
     Speed,
     ReloadSpeed,
     FireRate,
-    Range
+    Range,
+    Accuracy
 }
 
 public enum ModifierScaling

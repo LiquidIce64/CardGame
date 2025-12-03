@@ -57,6 +57,28 @@ public struct CardEffect
         }
     }
 
+    public void Revert(BaseCharacter character)
+    {
+        switch (effectType)
+        {
+            case EffectType.Modifier:
+                float value = (modifierScaling == ModifierScaling.Exponential) ? 1f / modifierValue : -modifierValue;
+                character.ApplyModifierScaling(modifierType, modifierScaling, value);
+                break;
+            case EffectType.Weapon:
+                // I'll just assume the player didn't get a new weapon before the current one got reverted
+                character.RevertWeapon();
+                break;
+            case EffectType.Ability:
+                Debug.LogException(new NotImplementedException());
+                break;
+
+            case EffectType.Custom:
+                Debug.LogException(new NotImplementedException());
+                break;
+        }
+    }
+
     public void OnValidate()
     {
         if (weapon != null)

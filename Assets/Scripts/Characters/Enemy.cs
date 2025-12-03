@@ -45,13 +45,15 @@ namespace Characters
         {
             agent.nextPosition = transform.position;
 
+            equippedWeapon.TargetPos = Player.Instance.transform.position;
+
             if (GetDistanceToPlayer() > equippedWeapon.Range)
             {
                 FollowPlayer();
             }
             else
             {
-                equippedWeapon.Use(Player.Instance.transform.position);
+                equippedWeapon.Use();
             }
 
             Move(agent.desiredVelocity.normalized);
