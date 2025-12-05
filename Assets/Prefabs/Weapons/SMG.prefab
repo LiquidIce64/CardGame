@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2237894621140674428}
   - component: {fileID: 2179235910213456678}
   m_Layer: 0
-  m_Name: PistolSprite
+  m_Name: SMGSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: -4854829337826818713, guid: ceff149dc6628784595ad8cf6314b017, type: 3}
+  m_Sprite: {fileID: 7591463974754732465, guid: c749b6a4defaa314d99ce0788265b7f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2320844519031166030}
   - component: {fileID: 4567120568414047605}
   m_Layer: 0
-  m_Name: Pistol
+  m_Name: SMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapons.Pistol
   sprite: {fileID: 2179235910213456678}
   barrelTransform: {fileID: 8384300966799408512}
-  baseDamage: 15
-  baseKnockback: 10
-  selfKnockback: 2.5
+  baseDamage: 10
+  baseKnockback: 2.5
+  selfKnockback: 1
   baseRange: 10
-  baseFireRate: 2.5
-  baseAccuracy: 5
+  baseFireRate: 10
+  baseAccuracy: 12.5
 --- !u!1 &5594440897754730388
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ Transform:
   m_GameObject: {fileID: 5594440897754730388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.69, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

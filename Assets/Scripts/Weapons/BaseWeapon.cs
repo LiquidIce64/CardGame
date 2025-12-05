@@ -9,6 +9,7 @@ namespace Weapons
         [SerializeField] protected Transform barrelTransform;
         [SerializeField] protected float baseDamage = 1f;
         [SerializeField] protected float baseKnockback = 1f;
+        [SerializeField] protected float selfKnockback = 0f;
         [SerializeField] protected float baseRange = 1f;
         [SerializeField] protected float baseFireRate = 1f;
         [SerializeField] protected float baseAccuracy = 1f;
@@ -65,7 +66,7 @@ namespace Weapons
             {
                 var dir = GetDirectionToPos(targetPos);
                 transform.rotation = Quaternion.FromToRotation(Vector3.right, dir);
-                if (sprite != null) sprite.flipY = dir.x < 0f;
+                transform.localScale = dir.x < 0f ? new Vector3(1f, -1f, 1f) : Vector3.one;
             }
         }
     }

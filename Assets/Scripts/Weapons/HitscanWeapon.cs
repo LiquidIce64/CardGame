@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class Pistol : BaseWeapon
+    public class HitscanWeapon : BaseWeapon
     {
         static protected string[] layers = new[]
         {
@@ -36,6 +36,8 @@ namespace Weapons
                 character.ApplyDamage(Damage);
                 character.ApplyKnockback(characterDir * Knockback);
             }
+
+            owner.ApplyKnockback(-targetDirection * selfKnockback);
 
             Debug.DrawLine(barrelTransform.position, transform.position + targetDirection * Range, Color.red, 1f);
         }
