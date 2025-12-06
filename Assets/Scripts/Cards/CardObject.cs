@@ -15,6 +15,9 @@ public class CardObject : ScriptableObject
     private static CardObject[] cardObjectPool;
 
     public Sprite Sprite => sprite;
+    public string CardName => cardName;
+    public string CardDescription => cardDescription;
+    public float EffectDuration => effectDuration;
     public CardEffect[] Effects => effects;
 
     private static void LoadPool() => cardObjectPool ??= Resources.LoadAll<CardObject>("CardObjects");

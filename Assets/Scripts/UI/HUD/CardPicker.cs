@@ -16,6 +16,9 @@ public class CardPicker : MonoBehaviour, ICardDeck
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private RectTransform hudRect;
     [SerializeField] private Button button;
+    [SerializeField] private RectTransform cardInfoRect;
+    [SerializeField] private TextMeshProUGUI cardName;
+    [SerializeField] private TextMeshProUGUI cardDescription;
     private TextMeshProUGUI buttonText;
     private RectTransform buttonTransform;
     private RectTransform rectTransform;
@@ -94,8 +97,20 @@ public class CardPicker : MonoBehaviour, ICardDeck
         button.interactable = selectedCards.Count == cardsToSelect;
     }
 
+    private void UpdateCardInfo(Card card)
+    {
+        var pos = cardInfoRect.localPosition;
+        pos.x = card.Rect.localPosition.x;
+        cardInfoRect.localPosition = pos;
+        cardName.text = card.CardObject.CardName;
+        cardDescription.text = card.CardObject.CardDescription;
+        cardInfoRect.gameObject.SetActive(true);
+    }
+
     private void Update()
     {
+        cardInfoRect.gameObject.SetActive(false);
+
         if (cards.Count == 0) return;
 
         Vector3 center = rectTransform.localPosition;
@@ -108,6 +123,7 @@ public class CardPicker : MonoBehaviour, ICardDeck
             var card = cards[0];
             card.SetTarget(pos);
             card.Selected = true;
+            UpdateCardInfo(card);
             return;
         }
 
@@ -141,7 +157,11 @@ public class CardPicker : MonoBehaviour, ICardDeck
         {
             Vector3 pos = center;
             pos.x += offset;
-            if (i == hoveredCard) pos.y += selectedCardOffset;
+            if (i == hoveredCard)
+            {
+                pos.y += selectedCardOffset;
+                UpdateCardInfo(card);
+            }
 
             if (i <= hoveredCard)
                 card.transform.SetAsLastSibling();
