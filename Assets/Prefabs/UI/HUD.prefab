@@ -54,6 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f22b251523c1a54cbf6eed5269968d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUD
+  pauseMenu: {fileID: 6818072837009465661, guid: de6bdc4865e5b7445bc344315718021f, type: 3}
+  gameOverScreen: {fileID: 5383481460266480017, guid: 99d70872972d248419a7c95a2bde19c9, type: 3}
 --- !u!223 &5910237210391866476
 Canvas:
   m_ObjectHideFlags: 0

@@ -52,6 +52,7 @@ public class WaveController : MonoBehaviour
     
     public void OnWaveEnd()
     {
+        if (!enabled) return;
         StartNextWave();
         if (currentWaveIdx < waves.Length)
         {
@@ -73,6 +74,10 @@ public class WaveController : MonoBehaviour
             for (int i = 0; i < item.count; i++)
             {
                 var spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length - 1)];
+                if (spawnPoint == null) {
+                    Debug.LogWarning("Spawn point doesn't exist, skipping");
+                    break;
+                }
                 spawnPoint.Spawn(item.enemyPrefab);
                 yield return new WaitForSeconds(spawnInterval);
             }

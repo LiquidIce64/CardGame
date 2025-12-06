@@ -61,7 +61,9 @@ namespace Characters
 
         protected void OnDestroy()
         {
-            WaveController.Instance.UnregisterEnemy(this);
+            var controller = WaveController.Instance;
+            if (controller != null)
+                controller.UnregisterEnemy(this);
         }
     }
 }

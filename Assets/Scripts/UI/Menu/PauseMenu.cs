@@ -1,3 +1,4 @@
+using Characters;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,14 +6,20 @@ namespace UI
 {
     public class PauseMenu : MonoBehaviour
     {
-        public void RestartLevel()
+        public void Start()
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.buildIndex);
+            Player.InputActions.UI.Restart.performed += _ => RestartGame();
+        }
+
+        public void Unpause()
+        {
+            HUD.Instance.TogglePause();
         }
 
         public void RestartGame()
         {
+            Time.timeScale = 1f;
+            WaveController.Instance.enabled = false;
             SceneManager.LoadScene(0);
         }
 

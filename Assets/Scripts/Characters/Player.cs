@@ -22,8 +22,7 @@ namespace Characters
 
         override protected void OnDeath()
         {
-            Debug.Log("Game Over");
-            health = 100f;
+            HUD.Instance.GameOver();
         }
 
         private void FixedUpdate()
@@ -39,6 +38,11 @@ namespace Characters
             // Attack
             if (inputActions.Player.Attack.IsPressed())
                 equippedWeapon.Use();
+        }
+
+        private void OnDestroy()
+        {
+            inputActions.Disable();
         }
     }
 }
