@@ -1,3 +1,4 @@
+using Abilities;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Characters
         [SerializeField] protected CardEffect[] startingEffects;
         protected float health;
         protected readonly List<GameObject> weaponHistory = new();
+        protected readonly List<GameObject> abilities = new();
         protected BaseWeapon equippedWeapon;
         protected Rigidbody2D rb;
         protected readonly Dictionary<ModifierType, Modifier> modifiers = new();
@@ -81,16 +83,24 @@ namespace Characters
 
         public void EquipWeapon(GameObject weaponPrefab)
         {
-            SetWeapon(weaponPrefab);
-            weaponHistory.Add(weaponPrefab);
+            if (SetWeapon(weaponPrefab))
+                weaponHistory.Add(weaponPrefab);
         }
 
         public void RevertWeapon()
         {
-            weaponHistory.RemoveAt(weaponHistory.Count - 1);
             var weaponPrefab = weaponHistory[^1];
-            SetWeapon(weaponPrefab);
+            if (SetWeapon(weaponPrefab))
+                weaponHistory.RemoveAt(weaponHistory.Count - 1);
         }
+
+        public void EquipAbility(GameObject abilityPrefab)
+        {
+            var abilityObj = Instantiate(abilityPrefab, transform);
+            abilities.Add(abilityObj);
+        }
+
+        public void RevertAbility() => Destroy(abilities[^1]);
 
         abstract protected void OnDeath();
 

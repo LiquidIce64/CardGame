@@ -1,4 +1,5 @@
 using Characters;
+using CustomEffects;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -31,10 +32,10 @@ public struct CardEffect
     public GameObject weapon;
 
     // Ability
-
+    public GameObject ability;
 
     // Custom
-
+    public ICustomEffect.CustomEffect customEffect;
 
     public void Apply(BaseCharacter character) {
         switch (effectType)
@@ -48,11 +49,12 @@ public struct CardEffect
                 break;
 
             case EffectType.Ability:
-                Debug.LogException(new NotImplementedException());
+                character.EquipAbility(ability);
                 break;
 
             case EffectType.Custom:
-                Debug.LogException(new NotImplementedException());
+                var effect = ICustomEffect.GetCustomEffect(customEffect);
+                effect.Apply(character);
                 break;
         }
     }
@@ -70,11 +72,13 @@ public struct CardEffect
                 character.RevertWeapon();
                 break;
             case EffectType.Ability:
-                Debug.LogException(new NotImplementedException());
+                // Same here
+                character.RevertAbility();
                 break;
 
             case EffectType.Custom:
-                Debug.LogException(new NotImplementedException());
+                var effect = ICustomEffect.GetCustomEffect(customEffect);
+                effect.Revert(character);
                 break;
         }
     }

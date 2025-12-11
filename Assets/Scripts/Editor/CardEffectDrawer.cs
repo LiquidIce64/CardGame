@@ -16,6 +16,10 @@ public class CardEffectDrawer : PropertyDrawer
             [nameof(CardEffect.modifierValue)] = EffectType.Modifier,
 
             [nameof(CardEffect.weapon)] = EffectType.Weapon,
+
+            [nameof(CardEffect.ability)] = EffectType.Ability,
+
+            [nameof(CardEffect.customEffect)] = EffectType.Custom,
         };
         private readonly Dictionary<string, PropertyField> fieldMap = new();
 
