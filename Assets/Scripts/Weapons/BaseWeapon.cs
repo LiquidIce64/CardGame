@@ -24,12 +24,6 @@ namespace Weapons
         public float Accuracy => owner.ApplyModifier(ModifierType.Accuracy, baseAccuracy);
         public float RemainingCooldown => _cooldown;
 
-        public Vector3 TargetPos
-        {
-            get => targetPos;
-            set => targetPos = value - transform.localPosition;
-        }
-
         protected Vector3 GetDirectionToPos(Vector3 pos)
         {
             Vector3 vec = pos - owner.transform.position;
@@ -48,6 +42,7 @@ namespace Weapons
         {
             if (_cooldown > 0f) return;
             _cooldown = 1f / FireRate;
+            targetPos = owner.TargetPos - transform.localPosition;
             OnUse();
         }
 
@@ -61,6 +56,8 @@ namespace Weapons
         protected void FixedUpdate()
         {
             if (_cooldown > 0f) _cooldown -= Time.fixedDeltaTime;
+
+            targetPos = owner.TargetPos - transform.localPosition;
 
             if (targetPos != null)
             {

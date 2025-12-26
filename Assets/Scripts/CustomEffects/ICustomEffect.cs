@@ -9,6 +9,7 @@ namespace CustomEffects
         public enum CustomEffect
         {
             Nuke,
+            Heal,
         }
 
         public static ICustomEffect GetCustomEffect(CustomEffect type)
@@ -16,6 +17,7 @@ namespace CustomEffects
             return type switch
             {
                 CustomEffect.Nuke => new NukeEffect(),
+                CustomEffect.Heal => new HealEffect(),
                 _ => throw new Exception("Invalid custom effect"),
             };
         }

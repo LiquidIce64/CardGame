@@ -32,8 +32,7 @@ namespace Characters
 
             // Aim
             Vector2 mousePos = inputActions.Player.MousePosition.ReadValue<Vector2>();
-            Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePos);
-            equippedWeapon.TargetPos = targetPos;
+            targetPos = Camera.main.ScreenToWorldPoint(mousePos);
 
             // Attack
             if (inputActions.Player.Attack.IsPressed())

@@ -17,10 +17,12 @@ namespace Characters
         protected BaseWeapon equippedWeapon;
         protected Rigidbody2D rb;
         protected readonly Dictionary<ModifierType, Modifier> modifiers = new();
+        protected Vector3 targetPos = new();
 
-        public float Health => health;
+        public float Health { get => health; set => health = Mathf.Clamp(value, 0f, MaxHealth); }
         public float MaxHealth => ApplyModifier(ModifierType.Health, baseMaxHealth);
         public BaseWeapon EquippedWeapon => equippedWeapon;
+        public Vector3 TargetPos => targetPos;
 
         protected void OnValidate()
         {

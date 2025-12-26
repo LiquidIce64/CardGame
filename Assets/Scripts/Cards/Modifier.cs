@@ -1,3 +1,5 @@
+using System;
+
 public enum ModifierType
 {
     Health,
@@ -52,5 +54,5 @@ public class Modifier
         }
     }
 
-    public float Apply(float baseValue) => (baseValue + constantFactor) * linearFactor * exponentialFactor;
+    public float Apply(float baseValue) => (baseValue + constantFactor) * MathF.Max(0f, linearFactor) * MathF.Max(0f, exponentialFactor);
 }

@@ -10,24 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
-  m_Name: ExtraDamage
+  m_Name: SpeedCola
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 398368272, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
-  cardName: Extra Damage
-  cardDescription: Deal more damage and knockback
-  effectDuration: 0
+  sprite: {fileID: 1895011475, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  cardName: 25-Hour Energy Drink
+  cardDescription: Become faster than bullets for 10 seconds
+  effectDuration: 10
   effects:
   - effectType: 0
-    modifierType: 1
-    modifierScaling: 2
-    modifierValue: 2
+    modifierType: 3
+    modifierScaling: 1
+    modifierValue: -1000
     weapon: {fileID: 0}
     ability: {fileID: 0}
     customEffect: 0
   - effectType: 0
-    modifierType: 2
+    modifierType: 4
     modifierScaling: 1
-    modifierValue: 1
+    modifierValue: -1000
+    weapon: {fileID: 0}
+    ability: {fileID: 0}
+    customEffect: 0
+  - effectType: 0
+    modifierType: 5
+    modifierScaling: 2
+    modifierValue: 3
     weapon: {fileID: 0}
     ability: {fileID: 0}
     customEffect: 0

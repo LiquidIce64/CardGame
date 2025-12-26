@@ -21,12 +21,6 @@ namespace Abilities
         public float Accuracy => owner.ApplyModifier(ModifierType.Accuracy, baseAccuracy);
         public float RemainingCooldown => _cooldown;
 
-        public Vector3 TargetPos
-        {
-            get => targetPos;
-            set => targetPos = value - transform.localPosition;
-        }
-
         protected bool IsTarget(BaseCharacter character)
         {
             if (owner is Player) return character != owner;
@@ -47,6 +41,7 @@ namespace Abilities
 
             if (_cooldown > 0f) return;
             _cooldown = 1f / FireRate;
+            targetPos = owner.TargetPos - transform.localPosition;
             OnUse();
         }
     }

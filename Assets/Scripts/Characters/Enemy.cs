@@ -45,7 +45,7 @@ namespace Characters
         {
             agent.nextPosition = transform.position;
 
-            equippedWeapon.TargetPos = Player.Instance.transform.position;
+            targetPos = Player.Instance.transform.position;
 
             if (GetDistanceToPlayer() > equippedWeapon.Range)
             {

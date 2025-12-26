@@ -21,4 +21,6 @@ MonoBehaviour:
     modifierType: 0
     modifierScaling: 0
     modifierValue: 0
-    weapon: {fileID: 2609431964443110070, guid: 12003650b38ef0c4e8608a1ce66a9706, type: 3}
+    weapon: {fileID: 7347401642235715550, guid: c9fafea396be3f24ba9bcbd676a21f87, type: 3}
+    ability: {fileID: 0}
+    customEffect: 0

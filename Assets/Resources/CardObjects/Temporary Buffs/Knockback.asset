@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
-  m_Name: ExtendoArms
+  m_Name: Knockback
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -401033576, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
-  cardName: ExtendoArms
-  cardDescription: More melee attack range
-  effectDuration: 0
+  sprite: {fileID: -1645526985, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  cardName: Steel-Rubber Bullets
+  cardDescription: Send your enemies flying with the knockback
+  effectDuration: 30
   effects:
   - effectType: 0
-    modifierType: 8
-    modifierScaling: 1
-    modifierValue: 0.5
+    modifierType: 2
+    modifierScaling: 2
+    modifierValue: 50
     weapon: {fileID: 0}
     ability: {fileID: 0}
     customEffect: 0

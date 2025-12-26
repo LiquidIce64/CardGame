@@ -14,10 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
   sprite: {fileID: -1974795825, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
   cardName: Extra Health
-  cardDescription: More maximum health
+  cardDescription: Increase maximum health and heal yourself
+  effectDuration: 0
   effects:
   - effectType: 0
     modifierType: 0
     modifierScaling: 1
+    modifierValue: 1
+    weapon: {fileID: 0}
+    ability: {fileID: 0}
+    customEffect: 0
+  - effectType: 0
+    modifierType: 0
+    modifierScaling: 2
+    modifierValue: 1.5
+    weapon: {fileID: 0}
+    ability: {fileID: 0}
+    customEffect: 1
+  - effectType: 3
+    modifierType: 0
+    modifierScaling: 1
     modifierValue: 0.5
     weapon: {fileID: 0}
+    ability: {fileID: 0}
+    customEffect: 1

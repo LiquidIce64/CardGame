@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
-  m_Name: FasterShooting
+  m_Name: MagDump
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 1910851681, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
-  cardName: Firearm Expert
-  cardDescription: Shoot faster
+  sprite: {fileID: 0}
+  cardName: Mag Dump
+  cardDescription: Unload a full magazine into the enemies
+  effectDuration: 3
   effects:
   - effectType: 0
     modifierType: 7
-    modifierScaling: 1
-    modifierValue: 0.5
+    modifierScaling: 2
+    modifierValue: 5
     weapon: {fileID: 0}
-  - effectType: 0
-    modifierType: 6
-    modifierScaling: 1
-    modifierValue: 0.5
-    weapon: {fileID: 0}
+    ability: {fileID: 0}
+    customEffect: 0
