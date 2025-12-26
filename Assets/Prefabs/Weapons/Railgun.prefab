@@ -9,34 +9,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -51,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 2609431964443110070, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: m_Name
       value: Railgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: baseRange
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: baseDamage
@@ -70,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: selfKnockback
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

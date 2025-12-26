@@ -9,34 +9,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -54,19 +26,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: baseDamage
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: baseAccuracy
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: baseFireRate
-      value: 30
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: baseKnockback
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: selfKnockback
