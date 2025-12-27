@@ -41,7 +41,7 @@ namespace Weapons
                     character.ApplyKnockback(characterDir * Knockback);
                 }
 
-                Debug.DrawLine(barrelTransform.position, transform.position + direction * Range, Color.red, 1f);
+                TraceBullet(direction);
             }
 
             owner.ApplyKnockback(-targetDirection * selfKnockback);

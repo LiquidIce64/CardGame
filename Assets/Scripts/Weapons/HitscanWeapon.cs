@@ -39,7 +39,7 @@ namespace Weapons
 
             owner.ApplyKnockback(-targetDirection * selfKnockback);
 
-            Debug.DrawLine(barrelTransform.position, transform.position + targetDirection * Range, Color.red, 1f);
+            TraceBullet(targetDirection);
         }
     }
 }

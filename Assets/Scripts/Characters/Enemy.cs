@@ -6,7 +6,22 @@ namespace Characters
     [RequireComponent(typeof(NavMeshAgent))]
     public class Enemy : BaseCharacter
     {
-        private NavMeshAgent agent;
+        protected enum NPCState
+        {
+            Follow,
+            Attack,
+            Retreat
+        }
+
+        protected NavMeshAgent agent;
+        [SerializeField] protected float maxAttackDistance = 7.5f;
+        [SerializeField] protected float attackDistance = 5f;
+        [SerializeField] protected float minAttackDistance = 2.5f;
+        [SerializeField] protected float aimingTime = 1f;
+        protected float _remainingAimTime;
+        protected NPCState _state = NPCState.Follow;
+
+        private void ResetAimTime() => _remainingAimTime = aimingTime * Random.Range(0.95f, 1.05f);
 
         new protected void Awake()
         {
@@ -15,6 +30,7 @@ namespace Characters
             agent.updatePosition = false;
             agent.updateRotation = false;
             agent.updateUpAxis = false;
+            ResetAimTime();
         }
 
         new protected void Start()
@@ -25,7 +41,20 @@ namespace Characters
 
         protected void FollowPlayer()
         {
+            ResetAimTime();
             agent.SetDestination(Player.Instance.transform.position);
+        }
+
+        protected void Retreat()
+        {
+            ResetAimTime();
+
+            var playerDirection = Player.Instance.transform.position;
+            playerDirection -= agent.transform.position;
+            playerDirection.z = 0f;
+            playerDirection.Normalize();
+
+            agent.SetDestination(agent.transform.position - playerDirection * maxAttackDistance);
         }
 
         protected float GetDistanceToPlayer()
@@ -41,20 +70,47 @@ namespace Characters
             Destroy(gameObject);
         }
 
-        private void FixedUpdate()
+        protected void Attack()
+        {
+            agent.ResetPath();
+            if (_remainingAimTime > 0f)
+                _remainingAimTime -= Time.fixedDeltaTime;
+            else
+                equippedWeapon.Use();
+        }
+
+        virtual protected void EnemyLogic()
+        {
+            var distance = GetDistanceToPlayer();
+            switch (_state)
+            {
+                case NPCState.Follow:
+                    FollowPlayer();
+                    if (distance <= Mathf.Min(equippedWeapon.Range, attackDistance))
+                        _state = NPCState.Attack;
+                    break;
+                case NPCState.Attack:
+                    Attack();
+                    if (distance > Mathf.Min(equippedWeapon.Range, maxAttackDistance))
+                        _state = NPCState.Follow;
+                    else if (distance < minAttackDistance)
+                        _state = NPCState.Retreat;
+                    break;
+                case NPCState.Retreat:
+                    Retreat();
+                    if (distance >= Mathf.Min(equippedWeapon.Range, attackDistance))
+                        _state = NPCState.Attack;
+                    break;
+            }
+        }
+
+        protected void FixedUpdate()
         {
             agent.nextPosition = transform.position;
 
             targetPos = Player.Instance.transform.position;
 
-            if (GetDistanceToPlayer() > equippedWeapon.Range)
-            {
-                FollowPlayer();
-            }
-            else
-            {
-                equippedWeapon.Use();
-            }
+            EnemyLogic();
 
             Move(agent.desiredVelocity.normalized);
         }

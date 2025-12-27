@@ -42,8 +42,14 @@ namespace Weapons
         {
             if (_cooldown > 0f) return;
             _cooldown = 1f / FireRate;
-            targetPos = owner.TargetPos - transform.localPosition;
+            targetPos = owner.TargetPos;
             OnUse();
+        }
+
+        protected void TraceBullet(Vector3 direction)
+        {
+            var endPoint = owner.transform.position + transform.localPosition + direction * Range;
+            Debug.DrawLine(barrelTransform.position, endPoint, Color.red, 1f);
         }
 
         abstract protected void OnUse();
@@ -57,11 +63,12 @@ namespace Weapons
         {
             if (_cooldown > 0f) _cooldown -= Time.fixedDeltaTime;
 
-            targetPos = owner.TargetPos - transform.localPosition;
+            targetPos = owner.TargetPos;
 
             if (targetPos != null)
             {
-                var dir = GetDirectionToPos(targetPos);
+                var posOffset = Vector3.Scale(transform.localPosition, owner.transform.localScale - Vector3.one);
+                var dir = GetDirectionToPos(targetPos - posOffset);
                 transform.rotation = Quaternion.FromToRotation(Vector3.right, dir);
                 transform.localScale = dir.x < 0f ? new Vector3(1f, -1f, 1f) : Vector3.one;
             }

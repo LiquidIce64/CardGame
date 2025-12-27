@@ -47,6 +47,7 @@ public class WaveController : MonoBehaviour
     {
         enemies.Remove(enemy);
         enemiesLeft--;
+        Debug.Log(enemiesLeft);
         if (enemiesLeft == 0) OnWaveEnd();
     }
     
@@ -93,12 +94,8 @@ public class WaveController : MonoBehaviour
     {
         if (waveTimer != null) StopCoroutine(waveTimer);
 
-        currentWaveIdx++;
-        if (currentWaveIdx >= waves.Length)
-        {
-            Debug.Log("You won");
-            return;
-        }
+        if (currentWaveIdx < waves.Length - 1)
+            currentWaveIdx++;
 
         if (spawnPoints == null || spawnPoints.Length == 0)
         {
