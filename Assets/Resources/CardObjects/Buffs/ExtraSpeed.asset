@@ -27,7 +27,7 @@ MonoBehaviour:
   - effectType: 0
     modifierType: 7
     modifierScaling: 1
-    modifierValue: 0.5
+    modifierValue: 0.25
     weapon: {fileID: 0}
     ability: {fileID: 0}
     customEffect: 0

@@ -47,7 +47,6 @@ public class WaveController : MonoBehaviour
     {
         enemies.Remove(enemy);
         enemiesLeft--;
-        Debug.Log(enemiesLeft);
         if (enemiesLeft == 0) OnWaveEnd();
     }
     
