@@ -13,21 +13,14 @@ MonoBehaviour:
   m_Name: Stable Footing
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
   sprite: {fileID: -672156107, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
-  cardName: Bulletproof Vest
-  cardDescription: More protection from attacks
+  cardName: Stable Footing
+  cardDescription: Take less knockback
   effectDuration: 0
   effects:
   - effectType: 0
-    modifierType: 3
-    modifierScaling: 2
-    modifierValue: 0.75
-    weapon: {fileID: 0}
-    ability: {fileID: 0}
-    customEffect: 0
-  - effectType: 0
     modifierType: 4
     modifierScaling: 2
-    modifierValue: 0.9
+    modifierValue: 0.6
     weapon: {fileID: 0}
     ability: {fileID: 0}
     customEffect: 0
