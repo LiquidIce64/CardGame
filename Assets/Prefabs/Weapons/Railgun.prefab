@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2179235910213456678, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7122970657381634655, guid: c9f7b903f29c7b549b3f5faafea215e2, type: 3}
+    - target: {fileID: 2237894621140674428, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237894621140674428, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237894621140674428, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237894621140674428, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2320844519031166030, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -47,6 +67,14 @@ PrefabInstance:
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: selfKnockback
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384300966799408512, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384300966799408512, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
