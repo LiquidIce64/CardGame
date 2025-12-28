@@ -7,6 +7,7 @@ namespace Weapons
     {
         [SerializeField] protected SpriteRenderer sprite;
         [SerializeField] protected Transform barrelTransform;
+        [SerializeField] protected GameObject bulletTrace;
         [SerializeField] protected float baseDamage = 1f;
         [SerializeField] protected float baseKnockback = 1f;
         [SerializeField] protected float selfKnockback = 0f;
@@ -48,8 +49,14 @@ namespace Weapons
 
         protected void TraceBullet(Vector3 direction)
         {
+            if (bulletTrace == null) return;
+
             var endPoint = owner.transform.position + transform.localPosition + direction * Range;
-            Debug.DrawLine(barrelTransform.position, endPoint, Color.red, 1f);
+            var midPoint = (barrelTransform.position + endPoint) / 2;
+            direction = endPoint - barrelTransform.position;
+
+            var trace = Instantiate(bulletTrace, midPoint, Quaternion.FromToRotation(Vector3.right, direction));
+            trace.transform.localScale = new Vector3(direction.magnitude, trace.transform.localScale.y, trace.transform.localScale.z);
         }
 
         abstract protected void OnUse();

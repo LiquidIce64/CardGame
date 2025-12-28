@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapons.Shotgun
   sprite: {fileID: 2179235910213456678}
   barrelTransform: {fileID: 8384300966799408512}
+  bulletTrace: {fileID: 1602666497227709752, guid: 6dd797236468cae43a576b2997a94ce7, type: 3}
   baseDamage: 5
   baseKnockback: 5
   selfKnockback: 6

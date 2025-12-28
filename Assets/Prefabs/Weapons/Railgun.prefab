@@ -53,6 +53,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: bulletTrace
+      value: 
+      objectReference: {fileID: 4432092648601613607, guid: 9ed41436cd33c764aa90ae3ba7e7ff27, type: 3}
+    - target: {fileID: 4567120568414047605, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: baseAccuracy
       value: 0.5
       objectReference: {fileID: 0}
