@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 4f22b251523c1a54cbf6eed5269968d8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pauseMenu: {fileID: 6818072837009465661, guid: de6bdc4865e5b7445bc344315718021f, type: 3}
+  - gameOverScreen: {fileID: 5383481460266480017, guid: 99d70872972d248419a7c95a2bde19c9, type: 3}
+  - victoryScreen: {fileID: 7558811417294636154, guid: f2c3ee5487728d64b86b4c2a7dc68fb9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.InputSystem.XR;
 
 namespace Characters
 {
@@ -17,7 +15,7 @@ namespace Characters
         override protected void OnDeath()
         {
             Destroy(gameObject);
-            Debug.Log("You win");
+            HUD.Instance.GameOver(isVictory: true);
         }
 
         new protected void OnDestroy() { return; }
