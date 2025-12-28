@@ -31,10 +31,9 @@ public class WaveController : MonoBehaviour
 
     public static WaveController Instance => instance;
 
-    private void Awake()
-    {
-        instance = this;
-    }
+    private void Awake() => instance = this;
+
+    private void OnApplicationQuit() => enabled = false;
 
     private void Start()
     {
