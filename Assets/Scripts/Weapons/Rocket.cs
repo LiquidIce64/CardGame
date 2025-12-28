@@ -21,7 +21,7 @@ public class Rocket : MonoBehaviour
     void FixedUpdate()
     {
         sprite.localPosition += Time.fixedDeltaTime * speed * Vector3.down;
-        if (sprite.localPosition.y <= 0.5f)
+        if (sprite.localPosition.y <= 0.5f * sprite.transform.localScale.y)
         {
             List<Collider2D> results = new();
             Physics2D.OverlapCircle(

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -4854829337826818713, guid: ceff149dc6628784595ad8cf6314b017, type: 3}
+  sprite: {fileID: -4854829337826818713, guid: f462aed0a4178804083ff45c71e4dbf6, type: 3}
   cardName: Pistol
   cardDescription: Equip a pistol
   effectDuration: 0
@@ -22,3 +22,5 @@ MonoBehaviour:
     modifierScaling: 0
     modifierValue: 0
     weapon: {fileID: 2609431964443110070, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+    ability: {fileID: 0}
+    customEffect: 0

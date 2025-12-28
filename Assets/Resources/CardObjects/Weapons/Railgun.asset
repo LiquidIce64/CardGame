@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: Railgun
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -4854829337826818713, guid: ceff149dc6628784595ad8cf6314b017, type: 3}
+  sprite: {fileID: 7122970657381634655, guid: efeaeba73e7491a43baba2bd53f3cc7b, type: 3}
   cardName: Railgun
   cardDescription: Equip a railgun
   effectDuration: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: Stable Footing
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -672156107, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  sprite: {fileID: -3464348158979224121, guid: 44a3e2608ea0c474f8f462d4f6255bab, type: 3}
   cardName: Stable Footing
   cardDescription: Take less knockback
   effectDuration: 0

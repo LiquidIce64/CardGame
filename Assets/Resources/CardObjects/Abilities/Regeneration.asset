@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: Regeneration
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 0}
+  sprite: {fileID: 3958262417687261516, guid: 55c6e1350cee032439539e6cdd3b7ea1, type: 3}
   cardName: Regeneration
   cardDescription: Heal yourself over time
   effectDuration: 0

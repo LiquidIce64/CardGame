@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -4854829337826818713, guid: ceff149dc6628784595ad8cf6314b017, type: 3}
+  sprite: {fileID: 1275589539659018210, guid: b3dc198107b13de4ebe3d2a98713d5a4, type: 3}
   cardName: Shotgun
   cardDescription: Equip a shotgun
   effectDuration: 0

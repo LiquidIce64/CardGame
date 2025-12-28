@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: RocketShower
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 1071411783, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  sprite: {fileID: -3069248032023262307, guid: 0228f61102417d44981f8562c1c272ce, type: 3}
   cardName: Rocket Shower
   cardDescription: Fire rockets at targeted enemies
   effectDuration: 0

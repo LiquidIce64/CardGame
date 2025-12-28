@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: ExtraSpeed
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 1131441552, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  sprite: {fileID: -4456784135274928829, guid: a9751db717ceab84284c75be7c44e0e0, type: 3}
   cardName: Cardio
   cardDescription: Run faster
   effectDuration: 0

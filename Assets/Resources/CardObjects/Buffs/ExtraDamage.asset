@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: ExtraDamage
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 398368272, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  sprite: {fileID: 4284821608055798052, guid: e01ef19f72ce0f54e8877fff6d2ac9ff, type: 3}
   cardName: Extra Damage
   cardDescription: Deal more damage and knockback
   effectDuration: 0

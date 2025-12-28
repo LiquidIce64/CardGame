@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: Berserk
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 0}
+  sprite: {fileID: -3468797881980913297, guid: 49654219a66bbd343adbd98774b5a13b, type: 3}
   cardName: Berserk
   cardDescription: Deal and take more damage for a while
   effectDuration: 20

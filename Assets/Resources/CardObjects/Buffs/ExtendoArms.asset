@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: ExtendoArms
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -401033576, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  sprite: {fileID: 4323534838181529482, guid: 433a3730715ca8e4d8808be1a477459f, type: 3}
   cardName: ExtendoArms
   cardDescription: More attack range
   effectDuration: 0

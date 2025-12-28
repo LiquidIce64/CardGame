@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: MagDump
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 0}
+  sprite: {fileID: -2093433303894224802, guid: 87170e8cc6ed23741822f1340f833ac5, type: 3}
   cardName: Mag Dump
   cardDescription: Unload a full magazine into the enemies
   effectDuration: 3

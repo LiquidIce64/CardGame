@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
-  m_Name: Nuke
+  m_Name: KnockbackBullets
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -695807415, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
-  cardName: Nuke
-  cardDescription: Damage all enemies on the map
-  effectDuration: 0
+  sprite: {fileID: 407859157459428422, guid: acb235428de07024a9864699663346fc, type: 3}
+  cardName: Steel-Rubber Bullets
+  cardDescription: Send your enemies flying with the knockback
+  effectDuration: 30
   effects:
-  - effectType: 3
-    modifierType: 0
-    modifierScaling: 0
-    modifierValue: 0
+  - effectType: 0
+    modifierType: 2
+    modifierScaling: 2
+    modifierValue: 10
     weapon: {fileID: 0}
     ability: {fileID: 0}
     customEffect: 0

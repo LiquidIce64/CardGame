@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 7591463974754732465, guid: c749b6a4defaa314d99ce0788265b7f9, type: 3}
+  sprite: {fileID: 7591463974754732465, guid: c39ae0b34ff9f1f439af1f42986d2deb, type: 3}
   cardName: SMG
   cardDescription: Equip an SMG
   effectDuration: 0

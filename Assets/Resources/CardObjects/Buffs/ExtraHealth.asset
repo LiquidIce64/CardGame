@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: ExtraHealth
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -1974795825, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
+  sprite: {fileID: 3792253930948019753, guid: 0e3ca49d737d54740b9db1712475c419, type: 3}
   cardName: Extra Health
   cardDescription: Increase maximum health and heal yourself
   effectDuration: 0

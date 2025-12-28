@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: FirearmExpert
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: 0}
+  sprite: {fileID: 3878413447126075618, guid: 887557a061f8e30489bfe03e80e2c199, type: 3}
   cardName: Firearm Expert
   cardDescription: Shoot faster and with more accuracy
   effectDuration: 0

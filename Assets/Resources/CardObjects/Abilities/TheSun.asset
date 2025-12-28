@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
-  m_Name: Knockback
+  m_Name: TheSun
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -1645526985, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
-  cardName: Steel-Rubber Bullets
-  cardDescription: Send your enemies flying with the knockback
-  effectDuration: 30
+  sprite: {fileID: 827819107603753208, guid: b4f9a7a6fc1d8df458ff6e09974b63b1, type: 3}
+  cardName: The Sun
+  cardDescription: The Unmatched Power Of The Sun
+  effectDuration: 0
   effects:
-  - effectType: 0
-    modifierType: 2
-    modifierScaling: 2
-    modifierValue: 10
+  - effectType: 3
+    modifierType: 0
+    modifierScaling: 0
+    modifierValue: 0
     weapon: {fileID: 0}
     ability: {fileID: 0}
     customEffect: 0

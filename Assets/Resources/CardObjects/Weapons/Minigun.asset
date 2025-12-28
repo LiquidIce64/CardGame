@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac5249792b6834397a6d3f5086f835, type: 3}
   m_Name: Minigun
   m_EditorClassIdentifier: Assembly-CSharp::CardObject
-  sprite: {fileID: -4854829337826818713, guid: ceff149dc6628784595ad8cf6314b017, type: 3}
+  sprite: {fileID: 3154442989572563356, guid: 222c33adb0e5f7648978a35375c60eed, type: 3}
   cardName: Minigun
   cardDescription: Equip a minigun
   effectDuration: 0
