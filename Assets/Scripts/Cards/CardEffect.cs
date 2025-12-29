@@ -1,9 +1,7 @@
 using Characters;
 using CustomEffects;
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using Weapons;
 
 [Serializable]
 public struct CardEffect
@@ -80,17 +78,6 @@ public struct CardEffect
                 var effect = ICustomEffect.GetCustomEffect(customEffect);
                 effect.Revert(character);
                 break;
-        }
-    }
-
-    public void OnValidate()
-    {
-        if (weapon != null)
-        {
-            if (!weapon.IsPrefabDefinition() || !weapon.TryGetComponent<BaseWeapon>(out var _))
-            {
-                Debug.LogWarning("Weapon effect requires a weapon prefab");
-            }
         }
     }
 }

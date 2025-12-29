@@ -49,11 +49,5 @@ public class CardObject : ScriptableObject
         if (effectDuration > 0f)
             character.StartCoroutine(RevertEffects(character));
     }
-
-    private void OnValidate()
-    {
-        foreach (var effect in effects)
-            effect.OnValidate();
-    }
 }
 

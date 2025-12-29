@@ -1,4 +1,3 @@
-using Abilities;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,12 +22,6 @@ namespace Characters
         public float MaxHealth => ApplyModifier(ModifierType.Health, baseMaxHealth);
         public BaseWeapon EquippedWeapon => equippedWeapon;
         public Vector3 TargetPos => targetPos;
-
-        protected void OnValidate()
-        {
-            foreach (var effect in startingEffects)
-                effect.OnValidate();
-        }
 
         protected void Awake()
         {
