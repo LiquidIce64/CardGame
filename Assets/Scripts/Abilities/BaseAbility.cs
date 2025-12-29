@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Abilities
 {
+    [RequireComponent(typeof(AudioSource))]
     abstract public class BaseAbility : MonoBehaviour
     {
         [SerializeField] protected float baseDamage = 1f;
@@ -13,6 +14,7 @@ namespace Abilities
         protected Vector3 targetPos;
         protected float _cooldown = 0f;
         protected BaseCharacter owner;
+        protected AudioSource audioSource;
 
         public float Damage => owner.ApplyModifier(ModifierType.Damage, baseDamage);
         public float Knockback => owner.ApplyModifier(ModifierType.Knockback, baseKnockback);
@@ -33,6 +35,7 @@ namespace Abilities
         protected void Awake()
         {
             owner = GetComponentInParent<BaseCharacter>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         protected void FixedUpdate()
@@ -43,6 +46,7 @@ namespace Abilities
             _cooldown = 1f / FireRate;
             targetPos = owner.TargetPos - transform.localPosition;
             OnUse();
+            audioSource.Play();
         }
     }
 }

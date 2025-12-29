@@ -1,5 +1,6 @@
 using Characters;
 using UnityEngine;
+using Utils;
 
 namespace CustomEffects
 {
@@ -14,6 +15,7 @@ namespace CustomEffects
             {
                 enemy.ApplyDamage(damage);
             }
+            GlobalAudio.Play(GlobalAudioClip.Ignite);
         }
     }
 }

@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 5c51da301b5f1204ababe7aa4c68364a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ignite: {fileID: 8300000, guid: c91e59d66f0ffcd448f841811fc45f10, type: 3}
+  - cardDeckDraw: {fileID: 8300000, guid: 672461086c311a642987b595c8bc418b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

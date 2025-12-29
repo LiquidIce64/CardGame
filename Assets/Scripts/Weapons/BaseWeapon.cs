@@ -1,8 +1,10 @@
 using Characters;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Weapons
 {
+    [RequireComponent(typeof(AudioSource))]
     abstract public class BaseWeapon : MonoBehaviour
     {
         [SerializeField] protected SpriteRenderer sprite;
@@ -17,6 +19,7 @@ namespace Weapons
         protected Vector3 targetPos;
         protected float _cooldown = 0f;
         protected BaseCharacter owner;
+        protected AudioSource audioSource;
 
         public float Damage => owner.ApplyModifier(ModifierType.Damage, baseDamage);
         public float Knockback => owner.ApplyModifier(ModifierType.Knockback, baseKnockback);
@@ -45,6 +48,7 @@ namespace Weapons
             _cooldown = 1f / FireRate;
             targetPos = owner.TargetPos;
             OnUse();
+            audioSource.Play();
         }
 
         protected void TraceBullet(Vector3 direction)
@@ -64,6 +68,7 @@ namespace Weapons
         protected void Awake()
         {
             owner = GetComponentInParent<BaseCharacter>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         protected void FixedUpdate()

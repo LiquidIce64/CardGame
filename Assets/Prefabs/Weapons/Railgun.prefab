@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: selfKnockback
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6311585645151437216, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311585645151437216, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: c4579295f6abe20429504d4e3bdcab04, type: 3}
     - target: {fileID: 8384300966799408512, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.125

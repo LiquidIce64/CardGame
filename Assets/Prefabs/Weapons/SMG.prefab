@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: selfKnockback
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6311585645151437216, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 7fca8ae321d41584e825bde6a74e3738, type: 3}
     - target: {fileID: 8384300966799408512, guid: 93bc46d8ee7d90748b4bfdaab4e4f2eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.685

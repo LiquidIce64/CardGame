@@ -2,7 +2,7 @@ using Characters;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RectTransform))]
+[RequireComponent(typeof(RectTransform), typeof(AudioSource))]
 public class CardHand : MonoBehaviour, ICardDeck
 {
     private static CardHand instance;
@@ -12,6 +12,7 @@ public class CardHand : MonoBehaviour, ICardDeck
     [SerializeField] private float cardSpacingMultiplier = 1f;
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private RectTransform hudRect;
+    [SerializeField] private AudioSource audioSource;
     private RectTransform rectTransform;
     private int selectedCard = -1;
     public readonly List<Card> cards = new();
@@ -22,6 +23,7 @@ public class CardHand : MonoBehaviour, ICardDeck
     {
         instance = this;
         rectTransform = GetComponent<RectTransform>();
+        audioSource = GetComponent<AudioSource>();
         cards.Capacity = startingCardCount;
         AddCards(startingCardCount);
     }
@@ -57,6 +59,7 @@ public class CardHand : MonoBehaviour, ICardDeck
     {
         if (selectedCard == -1) return;
         cards[selectedCard].Use();
+        audioSource.Play();
         selectedCard = -1;
     }
 

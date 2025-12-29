@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 public class CardPicker : MonoBehaviour, ICardDeck
 {
@@ -67,6 +68,8 @@ public class CardPicker : MonoBehaviour, ICardDeck
 
         gameObject.SetActive(false);
         Time.timeScale = 1f;
+
+        GlobalAudio.Play(GlobalAudioClip.CardDeckDraw);
     }
 
     public void RegisterCard(Card card) => cards.Add(card);
